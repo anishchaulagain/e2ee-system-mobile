@@ -1,0 +1,1 @@
+This is e2ee mobile app. Will be soon available on Play Store and App Store
