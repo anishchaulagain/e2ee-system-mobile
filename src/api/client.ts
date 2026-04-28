@@ -96,11 +96,19 @@ export async function apiRequest<T>(path: string, options: RequestOptions = {}):
     if (token) headers.Authorization = `Bearer ${token}`;
   }
 
-  const res = await fetch(buildUrl(path, query), {
-    method,
-    headers,
-    body: body !== undefined ? JSON.stringify(body) : undefined,
-  });
+  let res: Response;
+  try {
+    res = await fetch(buildUrl(path, query), {
+      method,
+      headers,
+      body: body !== undefined ? JSON.stringify(body) : undefined,
+    });
+  } catch (err) {
+    // `fetch` throws TypeError on DNS / connection-refused / TLS failure.
+    // Turn that into something the UI can actually show the user.
+    const msg = err instanceof Error ? err.message : "Network error";
+    throw new ApiError(0, `Can't reach server (${apiBaseUrl}). ${msg}`);
+  }
 
   // Try to refresh once on 401 — covers the natural case where the access token
   // expires mid-session. If refresh succeeds, replay the original request.
