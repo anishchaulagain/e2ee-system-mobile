@@ -1,0 +1,42 @@
+{
+  "expo": {
+    "name": "Cipher",
+    "slug": "cipher-e2ee",
+    "version": "0.1.0",
+    "orientation": "portrait",
+    "scheme": "cipher",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": false,
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#F7F3EE"
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.cipher.e2ee"
+    },
+    "android": {
+      "package": "com.cipher.e2ee",
+      "adaptiveIcon": {
+        "backgroundColor": "#F7F3EE"
+      },
+      "permissions": ["INTERNET"]
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static"
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store"
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
+    "extra": {
+      "apiUrl": "http://localhost:3000",
+      "socketUrl": "http://localhost:3000"
+    }
+  }
+}
