@@ -8,7 +8,7 @@ the server only ever sees opaque ciphertext + nonce blobs.
 
 | Layer        | Choice                                   |
 | ------------ | ---------------------------------------- |
-| Runtime      | Expo SDK 51 + React Native 0.74          |
+| Runtime      | Expo SDK 54 + React Native 0.81 + React 19 |
 | Language     | TypeScript (strict, no `any`)            |
 | Routing      | `expo-router` (file-based, typed routes) |
 | Styling      | NativeWind v4 (Tailwind for RN)          |
